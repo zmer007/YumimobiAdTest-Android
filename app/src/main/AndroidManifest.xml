@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yumimobi.sample">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DeepLinksSample"
+            android:label="@string/deep_links">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.yumimobi-test.com"
+                    android:pathPrefix="/gizmos"
+                    android:scheme="yumimobi" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".AppLinksSample"
+            android:label="@string/app_links">
+            <tools:validation testUrl="http://pa-cloud.oss-cn-beijing.aliyuncs.com/gizmos" />
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="pa-cloud.oss-cn-beijing.aliyuncs.com"
+                    android:path="/gizmos"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
